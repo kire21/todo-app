@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/198b8517c3.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <title>Todo App</title>
+  </head>
+  <body>
+    <header>
+      <nav class="nav collapsible">
+        <a href="#"
+          ><img class="logo" src="images/to-do.png" alt="todo logo"
+        /></a>
+        <span class="nav__toggler">
+          <i class="fas fa-bars nav__toggler"></i>
+        </span>
+        <ul class="list nav__list collapsible__content">
+          <li class="nav__item active">
+            <a class="nav__link" href="#">Dashboard</a>
+          </li>
+          <li class="nav__item"><a class="nav__link" href="#">Today</a></li>
+          <li class="nav__item"><a class="nav__link" href="#">Week</a></li>
+          <li class="nav__item"><a class="nav__link" href="#">Projects</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="content"></main>
+
+    <div class="btns">
+      <button class="btn btn__new--todo grow">Add New Task</button>
+      <button class="btn btn__new--project grow">Add New Project</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p class="footer__text">Made by Kire Zdraveski</p>
+    </footer>
+
+    <!-- Modal Todos Window -->
+    <div class="modal modal__todos hidden">
+      <div class="container__close--modal">
+        <button class="close__modal close__modal--todo">&times;</button>
+      </div>
+      <div class="new__todo--header">
+        <h3>Add New Todo</h3>
+      </div>
+
+      <form class="todo__form">
+        <input
+          type="text"
+          name="title"
+          class="input input__todo--title"
+          placeholder="Title"
+        />
+        <input
+          type="text"
+          name="description"
+          class="input input__todo--description"
+          placeholder="Description"
+        />
+        <input type="date" name="date" class="input input__todo--date" />
+        <!-- <div class="todo__priority">
+          <input
+            type="button"
+            name="priority"
+            class="input input__todo--priority low grow"
+            value="Low"
+          />
+          <input
+            type="button"
+            name="priority"
+            class="input input__todo--priority medium grow"
+            value="Medium"
+          />
+          <input
+            type="button"
+            name="priority"
+            class="input input__todo--priority high grow"
+            value="High"
+          />
+        </div> -->
+        <button class="btn btn__add--todo grow" type="submit">
+          Add New Todo
+        </button>
+      </form>
+    </div>
+
+    <!-- Modal Projects Window -->
+    <div class="modal modal__projects hidden">
+      <div class="container__close--modal">
+        <button class="close__modal close__modal--project">&times;</button>
+      </div>
+      <div class="project__header">
+        <h3>Add New Projects</h3>
+      </div>
+
+      <form class="project__form">
+        <input
+          type="text"
+          name="title"
+          class="input input__project--title"
+          placeholder="Title"
+        />
+        <input
+          type="text"
+          name="description"
+          class="input input__project--description"
+          placeholder="Description"
+        />
+        <button class="btn btn__add--project grow" type="submit">
+          Add New Project
+        </button>
+        <!-- <button class="btn btn__delete grow" type="submit"></button> -->
+      </form>
+    </div>
+
+    <!-- Modal Projects Todos -->
+    <div class="modal modal__project--todos project__todo--list hidden">
+      <div class="container__close--modal">
+        <button class="close__modal close__modal--todos">&times;</button>
+      </div>
+
+      <div class="todo__header">
+        <h1 class="project__name"></h1>
+        <p class="list__count--element"></p>
+      </div>
+      <div class="todo__body">
+        <div class="todos"></div>
+      </div>
+      <div class="new__task--creator">
+        <form action="" data-new-task-form>
+          <input
+            type="text"
+            data-new-task-input
+            class="input new task"
+            placeholder="new task name"
+            aria-label="new task name"
+          />
+          <button
+            class="btn create btn__create--task"
+            aria-label="create new task"
+          >
+            Create New task
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Update Todo -->
+
+    <!-- Modal Todos Window -->
+    <div class="modal modal__edit--todo hidden">
+      <div class="container__close--modal">
+        <button class="close__modal close__modal--todo">&times;</button>
+      </div>
+      <div class="new__todo--header">
+        <h3>Edit Todo</h3>
+      </div>
+
+      <form class="todo__form">
+        <input
+          type="text"
+          name="title"
+          class="input edit__input--title"
+          placeholder="Title"
+        />
+        <input
+          type="text"
+          name="description"
+          class="input edit__input--description"
+          placeholder="Description"
+        />
+        <input type="date" name="date" class="input edit__input--date" />
+        <button class="btn btn__edit--todo grow">Edit Todo</button>
+      </form>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay hidden"></div>
+
+    <!-- Template -->
+    <template id="task-template">
+      <div class="task">
+        <input type="checkbox" />
+        <label>
+          <span class="custom-checkbox"></span>
+        </label>
+      </div>
+    </template>
+  </body>
+</html>
